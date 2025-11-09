@@ -20,8 +20,10 @@ COOKIES_FILE = 'ig_cookies.pkl'
 def create_uc_driver_with_fallback():
     from selenium.common.exceptions import SessionNotCreatedException
     options = uc.ChromeOptions()
-    # options.add_argument("--headless")  # Uncomment for headless mode
-    try:
+    # options.add_argument("--headless=new")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+
         driver = uc.Chrome(options=options)
     except SessionNotCreatedException:
         raise
